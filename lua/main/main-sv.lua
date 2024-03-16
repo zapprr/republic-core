@@ -154,7 +154,7 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 			rejectionReason = "Unable to locate your licence key. Contact the server development team for more details."
 		elseif identifierDiscord == nil then
 			rejectionReason = "Unable to locate your Discord key. Ensure that you have Discord installed on your computer, and linked to your FiveM application."
-		elseif not isInDiscord then
+		elseif not isInDiscord and CheckIfPlayerInDiscord then
 			rejectionReason = "You need to join the Discord server in order to connect to the server."
 		elseif string.len(name) > 20 then
 			rejectionReason = "We do not allow player names in excess of 25 characters - please change your name to be shorter."

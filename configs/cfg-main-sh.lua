@@ -2,6 +2,8 @@
 -- only metro trains are enabled by default since they don't bug out compared to freight trains (as tested on OneSync)
 trainsEnabled = true
 
+CheckIfPlayerInDiscord = false
+
 ServerName = "My Server"
 
 -- Text Entries are what's used in UI elements to show text to the player - this is editable as needed.
