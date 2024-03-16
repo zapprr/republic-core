@@ -3,6 +3,7 @@ An all-in-one, general purpose framework for menu-based FiveM servers. Originall
 
 ## Dependencies
 This requires the following scripts to work:
+- [NativeUILua_Reloaded](https://github.com/sdiaz/NativeUILua_Reloaded) (Must be named `NativeUILua_Reloaded`)
 - [blip-info](https://github.com/glitchdetector/fivem-blip-info) (Must be named `blip_info`)
 - [bob74_ipl](https://github.com/Bob74/bob74_ipl) (Must be named `bob74_ipl`)
 - [pma-voice](https://github.com/AvarianKnight/pma-voice) (Must be named `pma-voice`)
@@ -13,3 +14,4 @@ This requires the following scripts to work:
 - Refactor code to make the codebase readable & expandable
 - Ensure customisability is easy to do
 - Fix any/all bugs
+- Update from discord_perms to Discordroles
