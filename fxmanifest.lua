@@ -30,6 +30,7 @@ shared_scripts {
 	"configs/*-sh.lua",
 
 	-- Code
+	"lua/main/*-sh.lua",
 	"lua/*-sh.lua",
 	"lua/*/*-sh.lua",
 }
@@ -38,7 +39,8 @@ client_scripts {
 	-- Configs
 	"configs/*-cl.lua",
 
-	-- Actual Code
+	-- Code
+	"lua/main/*-cl.lua",
 	"lua/*-cl.lua",
 	"lua/*/*-cl.lua",
 }
@@ -47,6 +49,8 @@ server_scripts {
 	-- Configs
 	"configs/*-sv.lua",
 
+	-- Code
+	"lua/main/*-sv.lua",
 	"lua/*-sv.lua",
 	"lua/*/*-sv.lua",
 }
