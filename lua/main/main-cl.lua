@@ -89,8 +89,6 @@ weaponTaken = false
 
 -- If the player's weapon is holstered
 local holstered = true
--- If the player is currently crouched
-local crouched = false
 
 local draggedBy = -1
 local drag = false
@@ -4067,35 +4065,6 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-	RequestAnimSet( "move_ped_crouched" )
-	while not HasAnimSetLoaded( "move_ped_crouched" ) do 
-		Citizen.Wait(100)
-	end
-
-	while true do
-		Citizen.Wait(0)
- 		if IsControlJustPressed( 0, 36 ) then
-			if crouched then
-				SetPedStealthMovement(ped, 0, 0)
-				ResetPedMovementClipset( ped, 0 )
-				crouched = false
-			else
-				counter = 0
-				while IsControlPressed( 0, 36 ) do
-					Citizen.Wait(10)
-					counter = counter + 1
-				end
-				if counter > 25 then
-					SetPedStealthMovement(ped, 0, 0)
-					SetPedMovementClipset( ped, "move_ped_crouched", 0 )
-					crouched = true
-				end
-			end
-		end
-	end
-end)
-
-Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(100)
 		
@@ -4156,7 +4125,6 @@ RegisterCommand('hu', function(source, args, user)
 		ShowInfoLabel("INFO_HANDSUP")
 
 		if IsControlJustPressed(0, 36) then
-			crouched = false
 			SetPedStealthMovement(ped, 0, 0)
 			ResetPedMovementClipset( ped, 0 )
 
