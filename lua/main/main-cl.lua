@@ -3225,7 +3225,8 @@ function RenderPlayerlist()
 
 	WriteText(0.01 - safezoneSize + 0.5, 0.01 - safezoneSize + 0.5, 0.3, #onlinePlayers .. " Online Players", 0, 0, 1.0, false, false, false, 255, 255, 255, 255)
 
-	DrawSprite("playerlist_icon", "playerlist_icon", 0.4475 -safezoneSize + 0.5, 0.15 - safezoneSize + 0.5, 0.4, 0.3, 0.0, 150, 150, 150, 50)
+	-- Removed for now, may readd
+	--DrawSprite("playerlist_icon", "playerlist_icon", 0.4475 -safezoneSize + 0.5, 0.15 - safezoneSize + 0.5, 0.4, 0.3, 0.0, 150, 150, 150, 50)
 
 	for _, item in ipairs(onlinePlayersPage) do
 		local opacity = 255
@@ -4112,7 +4113,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand('playerlist', function(source, args, user)
-	loadTextDict("playerlist_icon")
+	--loadTextDict("playerlist_icon")
 	showPlayerlist = not showPlayerlist
 	playerlistPage = 1
 end, false)
