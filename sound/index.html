@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <script src="nui://game/ui/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+    integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    var players = [
+      new Howl({ src: [ './unholster.ogg' ] }),
+      new Howl({ src: [ './holster.ogg' ] }),
+      new Howl({ src: [ './cuff.ogg' ] }),
+      new Howl({ src: [ './uncuff.ogg' ] }),
+    ];
+
+    $(() => {
+      window.addEventListener('message', function (event) {
+        switch(event.data.t) {
+          case('PLAY_SOUND'): {
+            var player = players[event.data.d.sound]
+            if (player) {
+              player.volume(0.5);
+              player.play();
+            }
+            break;
+          };
+        }
+      });
+    });
+  </script>
+</head>
+
+</html>
