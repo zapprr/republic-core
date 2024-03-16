@@ -1,0 +1,13 @@
+[
+    {
+        "state": "Resolved",
+        "message": "This is a test of the emergency call log system. Do not remove this incident.",
+        "incidentNumber": 10001,
+        "address": "Senora Way",
+        "postal": "3063",
+        "notes": "TEST OF THE NOTES SYSTEM.",
+        "playerName": "SYSTEM",
+        "id": 3,
+        "type": "SYSTEM TEST"
+    }
+]
