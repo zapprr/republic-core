@@ -9,7 +9,11 @@ local postalFile = 'json/postals_sa.json'
 local streetFile = 'json/streets_lc.json'
 
 dependencies {
+	"blip_info",
+	"bob74_ipl",
+	"discord_perms",
 	"pma-voice",
+	"rp-radio",
 }
 
 file(streetFile)

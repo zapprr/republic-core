@@ -1,13 +1,15 @@
 # republic-core
 An all-in-one, general purpose framework for menu-based FiveM servers. Originally spun off from code created for San Andreas Republic.
 
+## Dependencies
 This requires the following scripts to work:
-- pma-voice
-- discord_perms
-- rp-radio
-- blip-info
+- [blip-info](https://github.com/glitchdetector/fivem-blip-info) (Must be named `blip_info`)
+- [bob74_ipl](https://github.com/Bob74/bob74_ipl) (Must be named `bob74_ipl`)
+- [pma-voice](https://github.com/AvarianKnight/pma-voice) (Must be named `pma-voice`)
+- [discord_perms](https://github.com/logan-mcgee/discord_perms) (Must be named `discord_perms`)
+- [rp-radio](https://github.com/AvarianKnight/rp-radio) (Must be named `rp-radio`)
 
-To-Do:
+## To-Do:
 - Refactor code to make the codebase readable & expandable
 - Ensure customisability is easy to do
 - Fix any/all bugs
