@@ -892,9 +892,21 @@ RegisterCommand('me', function(source, args, user)
 end, false)
 
 RegisterCommand('do', function(source, args, user)
-	if #args ~= 0 and GetPlayerNick(source) then
-		SendActionMessage(GetPlayerNick(source) .. " " .. table.concat(args, " "), source, true)
-	end
+	DoCommand(source, args, user)
+end, false)
+
+RegisterCommand('gdo', function(source, args, user)
+	GlobalDoCommand(source, args, user)
+end, false)
+
+-- SAR Legacy Commands
+RegisterCommand('action', function(source, args, user)
+	DoCommand(source, args, user)
+end, false)
+
+-- SAR Legacy Commands
+RegisterCommand('gaction', function(source, args, user)
+	GlobalDoCommand(source, args, user)
 end, false)
 
 RegisterCommand('run', function(source, args, user)
@@ -909,17 +921,16 @@ RegisterCommand('search', function(source, args, user)
 	end
 end, false)
 
-RegisterCommand('action', function(source, args, user)
+function DoCommand(source, args, user)
 	if #args ~= 0 and GetPlayerNick(source) then
 		SendActionMessage(table.concat(args, " "), source, true)
 	end
-end, false)
-
-RegisterCommand('gaction', function(source, args, user)
+end
+function GlobalDoCommand(source, args, user)
 	if #args ~= 0 and GetPlayerNick(source) then
-		SendActionMessage(table.concat(args, " "), source, false)
+		SendActionMessage(table.concat(args, " "), source, true)
 	end
-end, false)
+end
 
 reportId = 1000
 
