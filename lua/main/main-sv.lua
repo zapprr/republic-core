@@ -469,7 +469,11 @@ Citizen.CreateThread(function()
 		LogWebhook(Webhooks.ServerLog, "[ERROR] calls.json corrupted - please restore from last backup")
 	end
 
-	incidentNumber = emergencyCallList[#emergencyCallList].incidentNumber or 20000
+	incidentNumber = 20000
+	if #emergencyCallList > 0 then
+		incidentNumber = emergencyCallList[#emergencyCallList].incidentNumber or 20000
+	end
+	
 
 	print("Server script initialised")
 
