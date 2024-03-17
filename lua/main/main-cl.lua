@@ -2464,10 +2464,10 @@ Citizen.CreateThread(function()
 		Citizen.Wait(100)
 	end
 
-	AddTextEntry("SPAWN_A", "You are currently in the ~b~spawn session~s~. In order to roleplay, you must do the following:")
-	AddTextEntry("SPAWN_B", "Change your ~b~player ped model~s~ using vMenu or Menyoo.")
-	AddTextEntry("SPAWN_C", "Set your ~b~character\'s name~s~ with /char")
-	AddTextEntry("SPAWN_D", "Once you have completed all of these, you will be moved to the ~b~roleplay session~s~.")
+	AddTextEntry("SPAWN_A", "Since you've just joined, we've seperated you from the rest of the server until you:")
+	AddTextEntry("SPAWN_B", "Change your ~b~character model~s~ using vMenu or any other trainer.")
+	AddTextEntry("SPAWN_C", "Set your ~b~character\'s name~s~ with the command \"/char\"")
+	AddTextEntry("SPAWN_D", "Once you've done these steps, you will be allowed to interact with the rest of the server.")
 
 	while player.session == 0 do
 		
@@ -2491,9 +2491,9 @@ Citizen.CreateThread(function()
 
 
 			if not (GetEntityModel(ped) == GetHashKey("a_m_y_hipster_01")) then
-				DrawRect(0.77 + safezoneSize - 0.5, 0.105 - safezoneSize + 0.5, 0.3, 0.003, 255, 255, 255, 255)
+				DrawRect(0.78 + safezoneSize - 0.5, 0.105 - safezoneSize + 0.5, 0.32, 0.003, 255, 255, 255, 255)
 			elseif player.nick then
-				DrawRect(0.72 + safezoneSize - 0.5, 0.135 - safezoneSize + 0.5, 0.2, 0.003, 255, 255, 255, 255)
+				DrawRect(0.754 + safezoneSize - 0.5, 0.135 - safezoneSize + 0.5, 0.265, 0.003, 255, 255, 255, 255)
 			end
 		end
 
