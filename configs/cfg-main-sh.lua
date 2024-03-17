@@ -203,15 +203,13 @@ BusRoutes = {
 agencies = {
 {type = "Law Enforcement", short = "LSPD", long = "Los Santos Police Department", motto = "Obey and Survive", 
 equipment = {
-	{weapon = "WEAPON_FN509", components = {"COMPONENT_AT_PI_FLSH"}}, 
+	{weapon = "WEAPON_COMBATPISTOL", components = {"COMPONENT_AT_PI_FLSH"}}, 
 	{weapon = "WEAPON_STUNGUN", tint = 1},
 	{weapon = "WEAPON_FLASHLIGHT"},
-	{weapon = "WEAPON_COLBATON"},
+	{weapon = "WEAPON_NIGHTSTICK"},
 
 	{weapon = "WEAPON_CARBINERIFLE_MK2", rack = "rifle", components = {"COMPONENT_AT_AR_FLSH", "COMPONENT_AT_SIGHTS", "COMPONENT_AT_AR_AFGRIP_02"}},
 	{weapon = "WEAPON_PUMPSHOTGUN", rack = "shotgun"},
-	{weapon = "WEAPON_BEANBAG", rack = "beanbag", tint = 1},
-	{weapon = "WEAPON_40MMLESSLETHAL", rack = "40mm"},
 },
 wallpaper = {"hacking_pc_desktop_3", "hacking_pc_desktop_3"}},
 
@@ -220,15 +218,13 @@ wallpaper = {"hacking_pc_desktop_3", "hacking_pc_desktop_3"}},
 
 {type = "Law Enforcement", short = "LSSD", long = "Los Santos County Sheriff's Department", motto = "A Tradition of Suppression", 
 equipment = {
-	{weapon = "WEAPON_DPPISTOL", components = {"COMPONENT_AT_PI_FLSH"}}, 
+	{weapon = "WEAPON_COMBATPISTOL", components = {"COMPONENT_AT_PI_FLSH"}}, 
 	{weapon = "WEAPON_STUNGUN", tint = 2},
 	{weapon = "WEAPON_FLASHLIGHT"},
-	{weapon = "WEAPON_COLBATON"},
+	{weapon = "WEAPON_NIGHTSTICK"},
 
 	{weapon = "WEAPON_CARBINERIFLE_MK2", rack = "rifle", components = {"COMPONENT_AT_AR_FLSH", "COMPONENT_AT_SIGHTS", "COMPONENT_AT_AR_AFGRIP_02"}},
 	{weapon = "WEAPON_PUMPSHOTGUN", rack = "shotgun"},
-	{weapon = "WEAPON_BEANBAG", rack = "beanbag", tint = 4},
-	{weapon = "WEAPON_40MMLESSLETHAL2", rack = "40mm"},
 },
 wallpaper = {40, 70, 50}},
 
@@ -236,15 +232,13 @@ wallpaper = {40, 70, 50}},
 
 {type = "Law Enforcement", short = "BCSO", long = "Blaine County Sheriff's Office", motto = "", 
 equipment = {
-	{weapon = "WEAPON_SAFETYPISTOL", components = {"COMPONENT_AT_PI_FLSH", "COMPONENT_AT_PI_SAFETYPISTOL_RDS"}}, 
+	{weapon = "WEAPON_COMBATPISTOL", components = {"COMPONENT_AT_PI_FLSH", "COMPONENT_AT_PI_SAFETYPISTOL_RDS"}}, 
 	{weapon = "WEAPON_STUNGUN", tint = 2},
 	{weapon = "WEAPON_FLASHLIGHT"},
-	{weapon = "WEAPON_COLBATON", tint = 7},
+	{weapon = "WEAPON_NIGHTSTICK", tint = 7},
 
 	{weapon = "WEAPON_CARBINERIFLE_MK2", rack = "rifle", components = {"COMPONENT_AT_AR_FLSH", "COMPONENT_AT_SCOPE_MACRO_MK2", "COMPONENT_AT_AR_SUPP_02"}},
 	{weapon = "WEAPON_PUMPSHOTGUN", rack = "shotgun"},
-	{weapon = "WEAPON_BEANBAG", rack = "beanbag", tint = 6},
-	{weapon = "WEAPON_40MMLESSLETHAL2", rack = "40mm"},
 },
 wallpaper = {40, 70, 50}},
 
@@ -306,7 +300,7 @@ wallpaper = {80, 80, 200}},
 equipment = {
 	{weapon = "WEAPON_FLASHLIGHT"},
 	{weapon = "WEAPON_VFCOMBATPISTOL"}, 
-	{weapon = "WEAPON_COLBATON"},
+	{weapon = "WEAPON_NIGHTSTICK"},
 },
 wallpaper = {50, 110, 50}},
 
@@ -314,14 +308,14 @@ wallpaper = {50, 110, 50}},
 equipment = {
 	{weapon = "WEAPON_FLASHLIGHT"},
 	{weapon = "WEAPON_VFCOMBATPISTOL"}, 
-	{weapon = "WEAPON_COLBATON"},
+	{weapon = "WEAPON_NIGHTSTICK"},
 },
 wallpaper = {60, 60, 130}},
 
 {type = "Private Security", short = "SECURO", long = "SecuroServ", motto = "", 
 equipment = {
 	{weapon = "WEAPON_FLASHLIGHT"},
-	{weapon = "WEAPON_COLBATON"},
+	{weapon = "WEAPON_NIGHTSTICK"},
 },
 wallpaper = {200, 200, 200}},
 
