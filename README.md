@@ -18,3 +18,4 @@ This requires the following scripts to work:
 - Generally improve the experience for those installing this script onto a fresh server/integrating it into an existing one
 - Make a list of all features (at this point there's so many in here we kinda need it)
 - Figure out what licence we wanna publish this under (e.g. creative commons?)
+- Props for Prop Menu
