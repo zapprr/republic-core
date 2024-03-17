@@ -1378,12 +1378,7 @@ Citizen.CreateThread(function()
 
 			model = GetUserSettings("Phone Model") - 1	
 
-			if model == 1 then
-				CreateMobilePhone(3)
-			else
-				CreateMobilePhone(model)
-			end
-
+			CreateMobilePhone(model)
 			phone = true
 
 			SetPedConfigFlag(PlayerPedId(), 242, not true)
