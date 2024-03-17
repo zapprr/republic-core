@@ -65,13 +65,13 @@ wallpapers = {
 	{name = "Orange Triangles", txd = "Phone_Wallpaper_orangetriangles"},
 	{name = "Orange Herring Bone", txd = "Phone_Wallpaper_orangeherringbone"},
 	{name = "Orange Halftone", txd = "Phone_Wallpaper_orangehalftone"},
-	{name = "Jerry", txd = "Phone_Wallpaper_jerry"},
+	--[[{name = "Jerry", txd = "Phone_Wallpaper_jerry"},
 	{name = "LGBTQ+ Pride", txd = "phone_wallpaper_pride"},
 	{name = "Trans Pride", txd = "phone_wallpaper_trans"},
 	{name = "Sheepdog", txd = "phone_wallpaper_sheepdog"},
 	{name = "Fix", txd = "phone_wallpaper_pride"},
 	{name = "Fix", txd = "phone_wallpaper_trans"},
-	{name = "Fix", txd = "phone_wallpaper_sheepdog"},
+	{name = "Fix", txd = "phone_wallpaper_sheepdog"},]]
 }
 
 themes = {
