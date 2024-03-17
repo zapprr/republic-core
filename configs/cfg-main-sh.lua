@@ -2,9 +2,11 @@
 -- only metro trains are enabled by default since they don't bug out compared to freight trains (as tested on OneSync)
 trainsEnabled = true
 
-CheckIfPlayerInDiscord = false
+ServerName = "My Server" -- This is used for the server name across various locations
+ServerId = "myserver" -- This is used for KVP Data storage, so one server's settings won't interfere with another's.
 
-ServerName = "My Server"
+CheckIfPlayerInDiscord = false -- Enabling this will prevent the player from joining the server if they can't be found in the Discord Server defined in discord_perms.
+
 
 -- Text Entries are what's used in UI elements to show text to the player - this is editable as needed.
 textEntries = {

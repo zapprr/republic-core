@@ -545,7 +545,7 @@ function SetUserSettings(name, newValue)
 	for _, item in ipairs(userSettings) do
 		if item[1] == name then
 			item[2] = newValue
-			SetResourceKvp("REPUBLIC-CORE:SETTINGS", json.encode(userSettings))
+			SetResourceKvp(ServerId .. "-CORE:SETTINGS", json.encode(userSettings))
 			print("Settings File Successfully Updated")
 		end
 	end
@@ -803,10 +803,10 @@ end)
 
 RegisterNetEvent('playerSpawned')
 AddEventHandler('playerSpawned', function(spawn)
-	if GetResourceKvpFloat("REPUBLIC-CORE:PLAYER_Z") > 0.0 then
-		local x = GetResourceKvpFloat("REPUBLIC-CORE:PLAYER_X")
-		local y = GetResourceKvpFloat("REPUBLIC-CORE:PLAYER_Y")
-		local z = GetResourceKvpFloat("REPUBLIC-CORE:PLAYER_Z")
+	if GetResourceKvpFloat(ServerId .. "-CORE:PLAYER_Z") > 0.0 then
+		local x = GetResourceKvpFloat(ServerId .. "-CORE:PLAYER_X")
+		local y = GetResourceKvpFloat(ServerId .. "-CORE:PLAYER_Y")
+		local z = GetResourceKvpFloat(ServerId .. "-CORE:PLAYER_Z")
 		SetEntityCoords(GetPlayerPed(-1), x, y, z, false, false, false, true)
 		print("Putting you back where you last was")
 	else
@@ -1815,7 +1815,7 @@ Citizen.CreateThread(function()
 
 	print("Getting save data...")
 
-	savedUserSettings = json.decode(GetResourceKvpString("REPUBLIC-CORE:SETTINGS")) or {}
+	savedUserSettings = json.decode(GetResourceKvpString(ServerId .. "-CORE:SETTINGS")) or {}
 
 	for _, nonitem in ipairs(settingsTemplate) do
 		for _, item in ipairs(nonitem.components) do
@@ -1835,15 +1835,15 @@ Citizen.CreateThread(function()
 		end
 	end
 
-	SetResourceKvp("REPUBLIC-CORE:SETTINGS", json.encode(userSettings), -1)
+	SetResourceKvp(ServerId .. "-CORE:SETTINGS", json.encode(userSettings), -1)
 
 	print("Please mind the gap while the doors are closing...")
 	-- Stops train doors from being forced open while ppl are inside (hopefully)
 	SetTrainsForceDoorsOpen(false)
 
 
-	--[[if GetResourceKvpString("REPUBLIC-CORE:SETTINGS") then
-		local tempUserSettings = json.decode(GetResourceKvpString("REPUBLIC-CORE:SETTINGS"))
+	--[[if GetResourceKvpString(ServerId .. "-CORE:SETTINGS") then
+		local tempUserSettings = json.decode(GetResourceKvpString(ServerId .. "-CORE:SETTINGS"))
 
 		if tempUserSettings.pldTheme then
 			tempUserSettings = userSettings
@@ -1869,10 +1869,10 @@ Citizen.CreateThread(function()
 			userSettings = tempUserSettings
 		end
 	end
-	SetResourceKvp("REPUBLIC-CORE:SETTINGS", json.encode(userSettings), -1)]]
+	SetResourceKvp(ServerId .. "-CORE:SETTINGS", json.encode(userSettings), -1)]]
 
 
-	characterHandle = StartFindKvp("REPUBLIC-CORE:CHARACTER:")
+	characterHandle = StartFindKvp(ServerId .. "-CORE:CHARACTER:")
 	if characterHandle ~= -1 then
 		local key
 		repeat
@@ -2266,9 +2266,9 @@ Citizen.CreateThread(function()
 		local x, y, z = table.unpack(coords)
 
 		if safe then
-			SetResourceKvpFloat("REPUBLIC-CORE:PLAYER_X", x)
-			SetResourceKvpFloat("REPUBLIC-CORE:PLAYER_Y", y)
-			SetResourceKvpFloat("REPUBLIC-CORE:PLAYER_Z", z)
+			SetResourceKvpFloat(ServerId .. "-CORE:PLAYER_X", x)
+			SetResourceKvpFloat(ServerId .. "-CORE:PLAYER_Y", y)
+			SetResourceKvpFloat(ServerId .. "-CORE:PLAYER_Z", z)
 		end
 	end
 end)
@@ -3943,7 +3943,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand("playtime", function(source, args, rawCommand)
-	local playtime = GetResourceKvpInt("REPUBLIC-CORE:PT")
+	local playtime = GetResourceKvpInt(ServerId .. "-CORE:PT")
 
 	if playtime >= 60 then
 		ShowInfo("Current Playtime: " .. math.floor(playtime/60) .. " hours, " .. playtime % 60 .. " minutes")
