@@ -50,5 +50,5 @@ copypastaMessages = {
 RegisterCommand('copypasta', function(source, args, user)
 	local message = copypastaMessages[math.random(#copypastaMessages)]
 
-	TriggerClientEvent('phone:receiveMessage', source, "Jennifer Adams", message, "CHAR_DEFAULT", -1)
+	TriggerClientEvent('phone:receiveMessage', source, "John Bingle", message, "CHAR_DEFAULT", -1)
 end)
