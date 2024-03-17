@@ -32,7 +32,9 @@ shared_scripts {
 	-- Code
 	"lua/main/*-sh.lua",
 	"lua/*-sh.lua",
-	"lua/*/*-sh.lua",
+	"lua/mdt/*-sh.lua",
+	"lua/oldphone/*-sh.lua",
+	"lua/newphone/*-sh.lua",
 }
 
 client_scripts {
@@ -42,7 +44,9 @@ client_scripts {
 	-- Code
 	"lua/main/*-cl.lua",
 	"lua/*-cl.lua",
-	"lua/*/*-cl.lua",
+	"lua/mdt/*-cl.lua",
+	"lua/oldphone/*-cl.lua",
+	"lua/newphone/*-cl.lua",
 }
 
 server_scripts {
@@ -52,7 +56,9 @@ server_scripts {
 	-- Code
 	"lua/main/*-sv.lua",
 	"lua/*-sv.lua",
-	"lua/*/*-sv.lua",
+	"lua/mdt/*-sv.lua",
+	"lua/oldphone/*-sv.lua",
+	"lua/newphone/*-sv.lua",
 }
 
 -- These are for the holster sounds
