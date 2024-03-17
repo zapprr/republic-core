@@ -90,9 +90,9 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 		rejectionReason = "The server is currently restarting."
 	end
 
-	local content = LoadResourceFile(GetCurrentResourceName(), "banlist.json")
+	local content = LoadResourceFile(GetCurrentResourceName(), "json/banlist.json")
 	if not content then
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode({}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode({}), -1)
 		content = json.encode({})
 	end
 
@@ -457,16 +457,16 @@ Citizen.CreateThread(function()
 
 	serverStarted = true
 
-	local content = LoadResourceFile(GetCurrentResourceName(), "calls.json")
+	local content = LoadResourceFile(GetCurrentResourceName(), "json/calls.json")
 	if not content then
-		SaveResourceFile(GetCurrentResourceName(), "calls.json", json.encode({}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/calls.json", json.encode({}), -1)
 		content = json.encode({})
 	end
 
 	emergencyCallList = json.decode(content)
 
 	if not emergencyCallList then
-		LogWebhook(Webhooks.ServerLog, "[ERROR] calls.json corrupted - please restore from last backup")
+		LogWebhook(Webhooks.ServerLog, "[ERROR] json/calls.json corrupted - please restore from last backup")
 	end
 
 	incidentNumber = 20000
@@ -743,9 +743,9 @@ function BanPlayer(id, reason, expiryTime)
 		Citizen.Wait(100)
 	end
 	updatingBanList = true
-	local content = LoadResourceFile(GetCurrentResourceName(), "banlist.json")
+	local content = LoadResourceFile(GetCurrentResourceName(), "json/banlist.json")
 	if not content then
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode({}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode({}), -1)
 		content = json.encode({})
 	end
 	local blacklist = json.decode(content)
@@ -764,7 +764,7 @@ function BanPlayer(id, reason, expiryTime)
 
 		table.insert(blacklist, data)
 
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode(blacklist, {indent = true}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode(blacklist, {indent = true}), -1)
 	end
 	updatingBanList = false
 end
@@ -775,9 +775,9 @@ function WarnPlayer(id, reason)
 	end
 	updatingBanList = true
 
-	local content = LoadResourceFile(GetCurrentResourceName(), "banlist.json")
+	local content = LoadResourceFile(GetCurrentResourceName(), "json/banlist.json")
 	if not content then
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode({}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode({}), -1)
 		content = json.encode({})
 	end
 	local blacklist = json.decode(content)
@@ -796,7 +796,7 @@ function WarnPlayer(id, reason)
 
 		table.insert(blacklist, data)
 
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode(blacklist, {indent = true}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode(blacklist, {indent = true}), -1)
 	end
 	updatingBanList = false
 end
@@ -806,9 +806,9 @@ function UnbanPlayer(id)
 		Citizen.Wait(100)
 	end
 	updatingBanList = true
-	local content = LoadResourceFile(GetCurrentResourceName(), "banlist.json")
+	local content = LoadResourceFile(GetCurrentResourceName(), "json/banlist.json")
 	if not content then
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode({}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode({}), -1)
 		content = json.encode({})
 	end
 	local blacklist = json.decode(content)
@@ -820,7 +820,7 @@ function UnbanPlayer(id)
 				table.remove(blacklist, i)
 			end
 		end
-		SaveResourceFile(GetCurrentResourceName(), "banlist.json", json.encode(blacklist, {indent = true}), -1)
+		SaveResourceFile(GetCurrentResourceName(), "json/banlist.json", json.encode(blacklist, {indent = true}), -1)
 	end
 	updatingBanList = false
 end
@@ -1117,7 +1117,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(120000)
 		if #emergencyCallList > 0 then
-			SaveResourceFile(GetCurrentResourceName(), "calls.json", json.encode(emergencyCallList, {indent = true}), -1)
+			SaveResourceFile(GetCurrentResourceName(), "json/calls.json", json.encode(emergencyCallList, {indent = true}), -1)
 		end
 	end
 end)
