@@ -1959,8 +1959,6 @@ Citizen.CreateThread(function()
 	RegisterKeyMapping("mdt", "Open the MDT", "keyboard", "O")
 	RegisterKeyMapping("hu", "Raise your hands", "keyboard", "U")
 	RegisterKeyMapping("hh", "Place hand on holster", "keyboard", "X")
-	RegisterKeyMapping("door 1", "Open/Close Front Driver Door", "keyboard", "")
-	RegisterKeyMapping("door 2", "Open/Close Front Passenger Door", "keyboard", "")
 	RegisterKeyMapping("trunk", "Open/Close Trunk", "keyboard", "")
 	RegisterKeyMapping("rd", "Dismiss player report (staff only)", "keyboard", "")
 
