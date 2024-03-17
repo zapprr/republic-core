@@ -895,6 +895,18 @@ RegisterCommand('me', function(source, args, user)
 	end
 end, false)
 
+RegisterCommand('gmy', function(source, args, user)
+	if #args ~= 0 and GetPlayerNick(source) then
+		SendActionMessage(GetPlayerNick(source) .. "'s' " .. table.concat(args, " "), source, false)
+	end
+end, false)
+
+RegisterCommand('my', function(source, args, user)
+	if #args ~= 0 and GetPlayerNick(source) then
+		SendActionMessage(GetPlayerNick(source) .. "'s' " .. table.concat(args, " "), source, true)
+	end
+end, false)
+
 RegisterCommand('do', function(source, args, user)
 	DoCommand(source, args, user)
 end, false)
