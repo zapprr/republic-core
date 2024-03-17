@@ -1925,42 +1925,106 @@ Citizen.CreateThread(function()
 	end
 
 	print("Setting up chat suggestions...")
-	TriggerEvent('chat:addSuggestion', '/me', 'Send a (local) action message.', {{ name="message", help="The action you wish to perform."}})
-	TriggerEvent('chat:addSuggestion', '/do', 'Send a (local) action message.', {{ name="message", help="The action you wish to perform."}})
-	TriggerEvent('chat:addSuggestion', '/gme', 'Send a global action message.', {{ name="message", help="The action you wish to perform."}})
 
-	TriggerEvent('chat:addSuggestion', '/report', 'Submit an admin report.', {{ name="id", help="The ID of the person you are reporting. "}, { name="report", help="Your report."}})
-
-	TriggerEvent('chat:addSuggestion', '/jail', 'Jail a user.', {{ name="id", help="User ID."}, { name="time", help="How long they should be jailed for (seconds)."}, {name="report", help="Optional reason for jailing"}})
+	--TriggerEvent('chat:addSuggestion', '/character', 'Open the character menu.') -- Incomplete.
+	--TriggerEvent('chat:addSuggestion', '/prop', 'Open the prop menu.') -- NEEDS TO BE FIXED!
+	TriggerEvent('chat:addSuggestion', '/dismiss', 'Dismiss a server warning or advisory.')
+	TriggerEvent('chat:addSuggestion', '/showid', 'Show your ID.')
+	TriggerEvent('chat:addSuggestion', '/playerlist', 'Hide/show the player list.')
+	TriggerEvent('chat:addSuggestion', '/hu', 'Raise/lower your hands.')
+	TriggerEvent('chat:addSuggestion', '/hh', 'Place your hand on your holster.')
+	TriggerEvent('chat:addSuggestion', '/engine', 'Toggle vehicle engine on or off.')
+	TriggerEvent('chat:addSuggestion', '/seatbelt', 'Put your seatbelt on.')
+	TriggerEvent('chat:addSuggestion', '/settings', 'Open the settings menu.')
+	--TriggerEvent('chat:addSuggestion', '/vehicle', 'Open the vehicle spawning menu.') -- Incomplete.
+	TriggerEvent('chat:addSuggestion', '/session', 'Open the session menu.')
+	--TriggerEvent('chat:addSuggestion', '/jobmenu', 'Open the job menu.') -- Incomplete.
+	TriggerEvent('chat:addSuggestion', '/onduty', 'Go on duty as an approved agency/company.', {{ name="department", help="Which department you're going on duty as."}, { name="callsign/identifier", help="Enter your callsign/station number here."}})
+	TriggerEvent('chat:addSuggestion', '/offduty', 'Go off duty.')
+	TriggerEvent('chat:addSuggestion', '/p', 'Activate Panic Button')
+	TriggerEvent('chat:addSuggestion', '/jail', 'Jail a user.', {{ name="id", help="User ID."}, { name="time", help="How long they should be jailed for in seconds."}, {name="report", help="Optional reason for jailing"}})
 	TriggerEvent('chat:addSuggestion', '/unjail', 'Unjail a user.', {{ name="id", help="User ID."}, {name="report", help="Optional reason for unjailing"}})
-
-	TriggerEvent('chat:addSuggestion', '/unrack', 'Unrack a weapon.', {{ name="weapon", help="What weapon you wish to unrack. 1 for Rifle, 2 for Shotgun, 3 for Beanbag Shotgun, 4 for 40mm Less-Lethal Launcher."}})
-	TriggerEvent('chat:addSuggestion', '/rack', 'Rack a weapon.')
-	TriggerEvent('chat:addSuggestion', '/run', 'Run a plate/name.', {{ name="name/plate", help="What you're running (examples include \"12ABC345\", \"John Doe\", \"The plate on the Red Stanier\", etc)."}})
-
-	TriggerEvent('chat:addSuggestion', '/window', 'Roll your windows up or down.', {{ name="window", help="Either put 1, 2, 3, 4, front, rear, or all."}, { name="state", help="up/down"}})
-	TriggerEvent('chat:addSuggestion', '/door', 'Open the door of your car.', {{ name="door", help="Either put 1, 2, 3, 4, front, rear, or all."}})
+	TriggerEvent('chat:addSuggestion', '/hospital', 'Send a user to the hospital.', {{ name="id", help="User ID."}, { name="time", help="How long they should be in the hospital for in seconds."}})
+	TriggerEvent('chat:addSuggestion', '/unhospital', 'Release a user from the hospital.', {{ name="id", help="User ID."}, {name="report", help="Optional reason for releasing"}})
+	TriggerEvent('chat:addSuggestion', '/coroner', 'Send a user to the mortuary.', {{ name="id", help="User ID."}, { name="time", help="How long they should be in the coroner for in seconds."}})
+	TriggerEvent('chat:addSuggestion', '/uncoroner', 'Release a user from the mortuary.', {{ name="id", help="User ID."}, {name="report", help="Optional reason for releasing"}})
+	--TriggerEvent('chat:addSuggestion', '/job', 'Set your job.', {{ name="job", help="The job you wish to set."}}) -- NEED MORE DOCUMENTATION
+	TriggerEvent('chat:addSuggestion', '/postal', 'Draw a GPS route to a specified postal.', {{ name="postal", help="The 3 or 4 digit postal code you want to be routed to."}})
 	TriggerEvent('chat:addSuggestion', '/trunk', 'Open the trunk of your car.')
 	TriggerEvent('chat:addSuggestion', '/hood', 'Open the hood of your car.')
+	--TriggerEvent('chat:addSuggestion', '/bus' -- Incomplete.
+	TriggerEvent('chat:addSuggestion', '/xmit', 'Send a message to Dispatch.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/window', 'Roll your windows up or down.', {{ name="window", help="Either put 1, 2, 3, 4, front, rear, or all."}, { name="state", help="up/down"}})
+	TriggerEvent('chat:addSuggestion', '/door', 'Open the door of your car.', {{ name="door", help="Either put 1, 2, 3, 4, front, rear, or all."}})
+	TriggerEvent('chat:addSuggestion', '/cuff ', 'Cuff/uncuff a player.', {{ name="id", help="The ID of the person you are cuffing/uncuffing."}})
+	TriggerEvent('chat:addSuggestion', '/drag', 'Drag/undrag a player.', {{ name="id", help="The ID of the person you are dragging/undragging."}})
+	TriggerEvent('chat:addSuggestion', '/rack', 'Rack a weapon that you have previously unracked.')
+	TriggerEvent('chat:addSuggestion', '/unrack', 'Take a weapon from the weapon rack.', {{ name="weapon", help="What weapon you wish to unrack. 1 for Rifle, 2 for Shotgun, 3 for Beanbag Shotgun, 4 for 40mm Less-Lethal Launcher."}})
+	TriggerEvent('chat:addSuggestion', '/drop', 'Drop your current weapon on the ground.')
+	TriggerEvent('chat:addSuggestion', '/firingmode', 'Cycle through your weapon\'s firing modes.')
+	TriggerEvent('chat:addSuggestion', '/dev', 'Staff Only: Toggle developer mode.')
 
-	TriggerEvent('chat:addSuggestion', '/onduty', 'For usage by government officials clocking in.', {{ name="department", help="Which department you're going on duty as."}, { name="callsign", help="Enter your callsign/station number here."}})
-
-
-	TriggerEvent('chat:addSuggestion', '/postal', 'Draw a GPS route to a specified postal.', {{ name="postal", help="The 4-digit postal code you want to be routed to."}})
-
+	TriggerEvent('chat:addSuggestion', '/deleteentity', 'Delete an entity.', {{ name="id", help="The ID of the entity you wish to delete."}})
 	TriggerEvent('chat:addSuggestion', '/char', 'Set an in-character name.', {{ name="character name", help="Your character's name. Please ensure the name is realistic and reasonable."}})
+	TriggerEvent('chat:addSuggestion', '/msg', 'Send a private chat message to another player.', {{ name="id", help="The ID of the person you are messaging."}, { name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/gme', 'Indicate that your character is doing something to all players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/me', 'Indicate that your character is doing something to nearby players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/do', 'Describe something or answer role-play questions for nearby players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/gdo', 'Describe something or answer role-play questions for all players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/action', 'Describe something or answer role-play questions for nearby players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/gaction', 'Describe something or answer role-play questions for all players.', {{ name="message", help="The message you wish to send."}})
+	TriggerEvent('chat:addSuggestion', '/run', 'Run a plate/name.', {{ name="name/plate", help="What you're running (examples include \"12ABC345\", \"John Doe\", \"The plate on the Red Stanier\", etc)."}})
+	TriggerEvent('chat:addSuggestion', '/search', 'Search something.', {{ name="name", help="What you're searching (examples include \"12ABC345\", \"John Doe\", \"The plate on the Red Stanier\", etc)."}})
+	TriggerEvent('chat:addSuggestion', '/report', 'Quickly report another player to staff.', {{ name="id", help="The ID of the person you are reporting."}, { name="report", help="Your report."}})
 
+	TriggerEvent('chat:addSuggestion', '/mdt', 'Open/close the Mobile Data Terminal.')
+	TriggerEvent('chat:addSuggestion', '/busy', 'MDT: Set your status to busy.')
+	TriggerEvent('chat:addSuggestion', '/bsy', 'MDT: Set your status to busy.')
+	TriggerEvent('chat:addSuggestion', '/unavailable', 'MDT: Set your status to unavailable.')
+	TriggerEvent('chat:addSuggestion', '/ua', 'MDT: Set your status to unavailable.')
+	TriggerEvent('chat:addSuggestion', '/clear', 'MDT: Clear your status.')
+	TriggerEvent('chat:addSuggestion', '/cl', 'MDT: Clear your status.')
+	TriggerEvent('chat:addSuggestion', '/enroute', 'MDT: Set your status to enroute.')
+	TriggerEvent('chat:addSuggestion', '/er', 'MDT: Set your status to enroute.')
+	TriggerEvent('chat:addSuggestion', '/codesix', 'MDT: Set your status to at-scene.')
+	TriggerEvent('chat:addSuggestion', '/c6', 'MDT: Set your status to at-scene.')
+	TriggerEvent('chat:addSuggestion', '/code6', 'MDT: Set your status to at-scene.')
+	TriggerEvent('chat:addSuggestion', '/onscene', 'MDT: Set your status to at-scene.')
 
+	TriggerEvent('chat:addSuggestion', '/copypasta', ':thonk:')
+
+	if player.staff then
+		TriggerEvent('chat:addSuggestion', '/rs', 'Mark a player report as handled.')
+		TriggerEvent('chat:addSuggestion', '/rr', 'Reply to a player report.')
+		TriggerEvent('chat:addSuggestion', '/rd', 'Dismiss a player report.', {{ name="id", help="The ID of the report you wish to dismiss."}})
+		TriggerEvent('chat:addSuggestion', '/smsg', 'Send a private chat message to another player as a staff member.', {{ name="id", help="The ID of the person you are messaging."}, { name="message", help="The message you wish to send."}})
+		TriggerEvent('chat:addSuggestion', '/aop', 'Set the current Area of Play.', {{ name="aop", help="The Area of Play you wish to set."}})
+		TriggerEvent('chat:addSuggestion', '/alert', 'Create an alert.', {{ name="alert", help="The alert you wish to send."}})
+		TriggerEvent('chat:addSuggestion', '/aopvote', 'Start an AOP Vote.', {{ name="aop", help="The potential Areas of Play you wish to set, seperated by |."}})
+		TriggerEvent('chat:addSuggestion', '/warn', 'Warn a player.', {{ name="id", help="The ID of the person you are warning."}, { name="warning", help="The warning you wish to send."}})
+		TriggerEvent('chat:addSuggestion', '/advise', 'Advise a player.', {{ name="id", help="The ID of the person you are advising."}, { name="advice", help="The advice you wish to send."}})
+		TriggerEvent('chat:addSuggestion', '/kick', 'Kick a player from the server.', {{ name="id", help="The ID of the person you are kicking."}, { name="reason", help="The reason you are kicking them."}})
+		TriggerEvent('chat:addSuggestion', '/tempban', 'Temporarily ban a player from the server.', {{ name="id", help="The ID of the person you are banning."}, { name="time", help="The time you are banning them for."}, { name="reason", help="The reason you are banning them."}})
+		TriggerEvent('chat:addSuggestion', '/ban', 'Permanently ban a player from the server.', {{ name="id", help="The ID of the person you are banning."}, { name="reason", help="The reason you are banning them."}})
+		TriggerEvent('chat:addSuggestion', '/unban', 'Unban a player from the server.', {{ name="id", help="The ID of the person you are unbanning."}})
+		TriggerEvent('chat:addSuggestion', '/staff', 'Send a message in chat labelled with the staff tag.', {{ name="message", help="The message you wish to send."}})
+		TriggerEvent('chat:addSuggestion', '/wl', 'Toggle the members-only whitelist.')
+		TriggerEvent('chat:addSuggestion', '/time', 'Change the time.', {{ name="hour", help="The hour you wish to set."}, { name="minute", help="The minute you wish to set."}})
+	end
 
 	print("Ensuring key mapping...")
-	RegisterKeyMapping("engine", "Toggle engine on or off", "keyboard", "G")
-	RegisterKeyMapping("playerlist", "Toggle the playerlist", "keyboard", "I")
-	RegisterKeyMapping("seatbelt", "Put your seatbelt on", "keyboard", "K")
-	RegisterKeyMapping("mdt", "Open the MDT", "keyboard", "O")
-	RegisterKeyMapping("hu", "Raise your hands", "keyboard", "U")
-	RegisterKeyMapping("hh", "Place hand on holster", "keyboard", "X")
-	RegisterKeyMapping("trunk", "Open/Close Trunk", "keyboard", "")
-	RegisterKeyMapping("rd", "Dismiss player report (staff only)", "keyboard", "")
+	RegisterKeyMapping("playerlist", "Player List", "keyboard", "I")
+	RegisterKeyMapping("hu", "Hands Up", "keyboard", "U")
+	RegisterKeyMapping("hh", "Ready Quickdraw", "keyboard", "X")
+	RegisterKeyMapping("engine", "Engine", "keyboard", "G")
+	RegisterKeyMapping("seatbelt", "Seatbelt", "keyboard", "K")
+	RegisterKeyMapping("mdt", "Mobile Data Terminal", "keyboard", "O")
+	RegisterKeyMapping("trunk", "Trunk", "keyboard", "")
+	RegisterKeyMapping('firingmode', 'Select Fire', 'keyboard', '')
+
+	if player.staff then
+		RegisterKeyMapping("rd", "Dismiss player report (staff only)", "keyboard", "")
+	end
 
 	print("Configuring custom plates (if enabled)")
 	
@@ -4971,7 +5035,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterKeyMapping('firingmode', 'Change Firing Mode', 'keyboard', '')
 
 RegisterCommand('firingmode', function()
 local ped = PlayerPedId()
