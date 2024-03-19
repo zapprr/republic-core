@@ -292,7 +292,7 @@ end
 
 AddEventHandler('onResourceStop', function(name)
     if name == GetCurrentResourceName() then -- check if the resource that is restarting, is the resource where our script is located
-        SetResourceKvp("REPUBLIC_CORE:PLAYERLIST", json.encode(players))
+        SetResourceKvp(ServerId .. "-CORE:PLAYERLIST", json.encode(players))
     end
 end)
 
@@ -395,8 +395,8 @@ Citizen.CreateThread(function()
 		end
 		
 		TriggerClientEvent("CoreTimeSync", -1, serverMinute, serverHour)
-		SetResourceKvpInt("REPUBLIC_CORE:MINUTE", serverMinute)
-		SetResourceKvpInt("REPUBLIC_CORE:HOUR", serverHour)
+		SetResourceKvpInt(ServerId .. "-CORE:MINUTE", serverMinute)
+		SetResourceKvpInt(ServerId .. "-CORE:HOUR", serverHour)
 	end
 end)
 
@@ -427,14 +427,14 @@ Citizen.CreateThread(function()
 	-- Get Playerlist (if restarting)
 	if (#GetPlayers()) > 0 then
 		-- Playerlist
-        	players = json.decode(GetResourceKvpString("REPUBLIC_CORE:PLAYERLIST")) or {}
+        	players = json.decode(GetResourceKvpString(ServerId .. "-CORE:PLAYERLIST")) or {}
 
 		-- Server Time
-		serverMinute = GetResourceKvpInt("REPUBLIC_CORE:MINUTE") or 0
-		serverHour = GetResourceKvpInt("REPUBLIC_CORE:HOUR") or 8
+		serverMinute = GetResourceKvpInt(ServerId .. "-CORE:MINUTE") or 0
+		serverHour = GetResourceKvpInt(ServerId .. "-CORE:HOUR") or 8
 
 		-- AOP
-		aop = GetResourceKvpString("REPUBLIC_CORE:AOP") or serverMap
+		aop = GetResourceKvpString(ServerId .. "-CORE:AOP") or serverMap
 	else
 
 		if serverMap == "San Andreas" then
@@ -595,7 +595,7 @@ RegisterCommand('aop', function(source, args, user)
 	TriggerClientEvent('updateAOP', -1, aop, 0)
 
 	-- Saves the AOP for next restart, so the script can be restarted without breaking stuff
-	SetResourceKvp("REPUBLIC_CORE:AOP", aop)
+	SetResourceKvp(ServerId .. "-CORE:AOP", aop)
 
 	-- Sets the AOP on the FiveM status page for the server
 	SetConvarServerInfo('Area of Play', aop)
@@ -642,7 +642,7 @@ function AOPVote(voteOptions, tiebreaker)
 		TriggerClientEvent('updateAOP', -1, aop, 0)
 
 		-- Saves the AOP for next restart, so the script can be restarted without breaking stuff
-		SetResourceKvp("REPUBLIC_CORE:AOP", aop)
+		SetResourceKvp(ServerId .. "-CORE:AOP", aop)
 
 		SetConvarServerInfo('Area of Play', aop)
 		messageIncrementer = messageIncrementer + 1
@@ -750,7 +750,7 @@ function BanPlayer(id, reason, expiryTime)
 	end
 	local blacklist = json.decode(content)
 	if not blacklist then
-		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact Jennifer Adams immediately.```")
+		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact server admin immediately.```")
 	else
 		if blacklist[#blacklist] then
 			banId = blacklist[#blacklist].id + 1
@@ -782,7 +782,7 @@ function WarnPlayer(id, reason)
 	end
 	local blacklist = json.decode(content)
 	if not blacklist then
-		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact Jennifer Adams immediately.```")
+		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact a server administrator immediately.```")
 	else
 		if blacklist[#blacklist] then
 			banId = blacklist[#blacklist].id + 1
@@ -813,7 +813,7 @@ function UnbanPlayer(id)
 	end
 	local blacklist = json.decode(content)
 	if not blacklist then
-		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact Jennifer Adams immediately.```")
+		LogWebhook(Webhooks.AdminLog, "```Error: Unable to process bans. Contact server admin immediately.```")
 	else
 		for i, item in ipairs(blacklist) do
 			if item.id == tonumber(id) then
