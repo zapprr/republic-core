@@ -14,7 +14,7 @@ This requires the following scripts to work:
 - Refactor code to make the codebase readable & expandable
 - Ensure customisability is easy to do
 - Fix any/all bugs
-- Update from discord_perms to Discordroles
+- Update from discord_perms to Discordroles INCLUDING CONFIG FOR SERVER ROLES PLEEEASE!!!
 - Generally improve the experience for those installing this script onto a fresh server/integrating it into an existing one
 - Make a list of all features (at this point there's so many in here we kinda need it)
 - Figure out what licence we wanna publish this under (e.g. creative commons?)
