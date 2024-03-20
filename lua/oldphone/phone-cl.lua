@@ -1560,7 +1560,7 @@ AddEventHandler('phone:receiveMessage', function(sender, message, icon, postal)
 
 	SetNotificationTextEntry("STRING")
 	AddTextComponentString(message)
-	SetNotificationMessage(txdString, txdString, true, 2, sender, "Private Message")
+	SetNotificationMessage(txdString, txdString, true, 2, sender, "Text Message")
 	PlaySoundFrontend(-1, "Phone_Generic_Key_01", "HUD_MINIGAME_SOUNDSET", 0)
 
 	-- message adding stuff
