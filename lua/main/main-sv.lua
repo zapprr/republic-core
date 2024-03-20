@@ -124,7 +124,9 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 
 	local identifierDiscord = nil
 	local identifierLicense = nil
-	local isInDiscord = false
+	if CheckIfPlayerInDiscord then
+		local isInDiscord = false
+	end
 	local isMember = false
 	local isStaff = false
 	local isDev = false
@@ -135,13 +137,15 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 		for k, v in ipairs(GetPlayerIdentifiers(player)) do
 			if string.sub(v, 1, string.len("discord:")) == "discord:" then
 				identifierDiscord = string.sub(v, 9)
-				if exports.discord_perms:GetRoles(player) ~= nil then
-					isInDiscord = true
+				
+				if CheckIfPlayerInDiscord then
+					if exports.discord_perms:GetRoles(player) ~= nil then
+						isInDiscord = true
+					end
 				end
-				isMember = exports.discord_perms:IsRolePresent(player, "Member")
-				isStaff = exports.discord_perms:IsRolePresent(player, "Staff")
-				isDev = exports.discord_perms:IsRolePresent(player, "Dev")
-				isLOA = exports.discord_perms:IsRolePresent(player, "LOA")
+				isMember = exports.discord_perms:IsRolePresent(player, "Member") or exports.discord_perms:IsRolePresent(player, "Guest")
+				isStaff = exports.discord_perms:IsRolePresent(player, "Moderator")
+				isDev = exports.discord_perms:IsRolePresent(player, "Sysadmin")
 			
 			elseif string.sub(v, 1, string.len("license:")) == "license:" then
 				identifierLicense = v
@@ -154,7 +158,7 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 			rejectionReason = "Unable to locate your licence key. Contact the server development team for more details."
 		elseif identifierDiscord == nil then
 			rejectionReason = "Unable to locate your Discord key. Ensure that you have Discord installed on your computer, and linked to your FiveM application."
-		elseif not isInDiscord and CheckIfPlayerInDiscord then
+		elseif CheckIfPlayerInDiscord and not isInDiscord then
 			rejectionReason = "You need to join the Discord server in order to connect to the server."
 		elseif string.len(name) > 20 then
 			rejectionReason = "We do not allow player names in excess of 25 characters - please change your name to be shorter."
