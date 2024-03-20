@@ -143,9 +143,10 @@ AddEventHandler("playerConnecting", function(name, setCallback, deferrals)
 						isInDiscord = true
 					end
 				end
-				isMember = exports.discord_perms:IsRolePresent(player, "Member") or exports.discord_perms:IsRolePresent(player, "Guest")
-				isStaff = exports.discord_perms:IsRolePresent(player, "Moderator")
-				isDev = exports.discord_perms:IsRolePresent(player, "Sysadmin")
+				isMember = exports.discord_perms:IsRolePresent(player, "Member")
+				isStaff = exports.discord_perms:IsRolePresent(player, "Staff")
+				isDev = exports.discord_perms:IsRolePresent(player, "Dev")
+				isLOA = exports.discord_perms:IsRolePresent(player, "LOA")
 			
 			elseif string.sub(v, 1, string.len("license:")) == "license:" then
 				identifierLicense = v
